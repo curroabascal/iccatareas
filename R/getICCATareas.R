@@ -42,7 +42,7 @@ pnts <- data.frame(x=londec,y=latdec)
   noarea=which(areaslengths==0)
   if (length(noarea)>0){
     print(paste('Points',paste(res$nrec[faocode==sp][noarea],collapse=";"),'do not fall in any of the areas'))
-    areas[[noarea]]=NA
+    dummy=sapply(noarea,function(x){areas[[x]] <<- NA})
   }
   
   twoareas=which(areaslengths>1)
